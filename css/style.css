@@ -1,124 +1,156 @@
-body{
-    padding: 0px;
-    margin: 0px;
-    background: #f6f6f6;
+/*
+1- all time don't use html element in style if 
+you wnat style any element use class property or id
+2- don't use max-height if you want show and hide element
+use css property display :none
+3- use media query in all screen 
+4- use comment alwasy 
+
+
+*/
+
+body {
+  padding: 0px;
+  margin: 0px;
+  background: #f6f6f6;
+  font-family: "Open-Sens", sans-serif;
 }
-header{
-    background: #008489;
-    height: 66px;
+/*  start style header with flexbox */
+
+header {
+  background: #008489;
+  height: 66px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
 }
-header * {
-	font-family: 'Righteous', cursive;
-    color: white;
-   
+/*  end  style header with flexbox */
+
+/* header .logo {
+  float: left;
+  height: inherit;
+  margin-left: 2px;
+} */
+
+/*  start style logo-text  */
+header .logo-text {
+  margin: 15px 0 0 8px;
+  font-family: "Open-Sens", sans-serif;
+}
+header .logo-text span {
+  color: #05f7ff;
+}
+/*  end style logo-text  */
+
+/*  start style nav link */
+header .nav {
+  /* float: right; */
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+header .nav li {
+  /* float: left; */
+  position: relative;
+}
+header .nav li a {
+  color: #f6f6f6;
+}
+header .nav .login .dropdown {
+  /* float: left; */
+  /* position: absolute;
+  top: 66px;
+  right: 0px;
+  width: 180px; */
+  box-shadow: 0px 0px 6px rgba(136, 136, 136, 0.4);
+  display: none;
+  background: #006669;
+  padding-left: 0;
 }
 
-header .logo{
-    float: left;
-    height: inherit;
-    margin-left: 2px;
+header .nav .login .dropdown li {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+header .nav .login .dropdown li a {
+  padding: 10px;
+  background: #006669;
+  color: #fff;
+}
+header .nav .login .dropdown li a:hover {
+  background: #fff;
+  color: #006669;
+}
+header .nav li a {
+  display: block;
+  padding: 21px;
+  font-size: 20px;
+  text-decoration: none;
+}
+header .nav li a:hover {
+  background: #006669;
+  transition: 0.5s;
+}
+/*  end  style nav link */
 
-    
+/*  start style menu-toggle use that in screen mobile */
+header .menu-toggle {
+  display: none;
 }
-header .logo-text{
-    margin: 8px;
+/*  end style menu-toggle use that in screen mobile */
+
+/*  start media */
+@media only screen and (min-width: 770px) {
+  header ul .login:hover .dropdown {
+    display: block;
+  }
 }
-header .logo-text span{
-    color:#05f7ff;
-} 
-.showing{
-    max-height: 500px;
-}
-header ul{
-    float: right;
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
-    
-}
-header ul li{
-    float: left;
+@media only screen and (max-width: 770px) {
+  header {
     position: relative;
-}
-header ul li ul{
-    float: left;
+  }
+  header .nav {
+    width: 100%;
+    background: #0e94a0;
+    max-height: 500px;
+    overflow: hidden;
+    /* flex-direction: column; */
     position: absolute;
-    top:66px;
-    right: 0px;
-    width: 180px;
+    top: 66px;
     display: none;
-   
-    
-}
-header ul li:hover ul{
-    display: block;
-}
-header ul li ul li{
-    width: 100%
-    }
-header ul li ul li a{
+  }
+  header .nav li {
+    width: 100%;
+  }
+  header .nav .login .dropdown {
+    position: static;
+    display: none;
+    width: 100%;
+  }
+  header .nav .login .dropdown li a {
     padding: 10px;
-    background: white;
-    color: #444;
-}
-header ul li ul li a:hover{
-    background: #d5d6d6;
-}
-header ul li a{
-    display: block;
-    padding: 21px;
-    font-size: 20px;
-    text-decoration: none;
-}
-header ul li a:hover{
-    background: #006669;
-    transition: 0.5s;
-}
-
-header .menu-toggle{
-   display: none;
-}
-@media only screen and (max-width:770px){
-    header{
-        position: relative;
-    }
-    header ul{
-        width: 100%;
-        background: #0E94A0;
-        max-height: 0px;
-        overflow: hidden;
-    }
-    header ul li{
-        width: 100%; 
-    }
-    header ul li ul{
-        position: static;
-        display: block;
-        width: 100%;
-    }
-    header ul li ul li a{
-    padding: 10px;
-    background: #0E94A0;
+    background: #0e94a0;
     color: white;
     padding-left: 50px;
-}
-    header ul li ul{
-    display: none;
-   
-    
-}
-    header ul li ul li a:hover{
-        background:white;
-            color:#006669;
-    }
-    
-    header .menu-toggle{
-   display:block;
-        position: absolute;
-    right: 20px;
-        top: 20px;
-        font-size: 27px;
-         
-}
-}
+  }
 
+  header .nav .login .dropdown li a:hover {
+    background: white;
+    color: #006669;
+  }
+
+  header .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 27px;
+  }
+  .showing {
+    display: block !important;
+  }
+}
+/*  end media */
